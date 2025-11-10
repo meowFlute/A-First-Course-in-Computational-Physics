@@ -1,6 +1,6 @@
 # --- Configuration ---
 FC = gfortran
-FCFLAGS = -g -Wall -fcheck=all -c -J$(BUILDDIR) # -J flag puts .mod files in build dir
+FCFLAGS = -g -Wall -Wextra -fcheck=all -c -J$(BUILDDIR) # -J flag puts .mod files in build dir
 BUILDDIR = build
 SRCDIR = src
 
