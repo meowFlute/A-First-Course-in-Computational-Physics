@@ -7,7 +7,7 @@
 ! originally written: Monday 10 November 2025
 !       last revised: Monday 10 November 2025
 
-! this was so Fortran-77... we want something more portable
+! the line below was so FORTRAN-77... we want something more portable
 ! DOUBLE PRECISION first, second, average
 
 ! this iso_fortan_env module does the trick
@@ -15,7 +15,9 @@ use iso_fortran_env     ! this makes it so we can use more modern iso types
 implicit none           ! this makes it so implicit declarations don't work
 
 ! it declares numeric constants for the number of bytes for each type
-real(kind=real64) temp, total, average
+! real(kind=real32) temp, total, average
+! real(kind=real64) temp, total, average
+real(kind=real128) temp, total, average
 integer(kind=int8) num_entries, i
 
 write(*,' (A)', advance='no') 'How many numbers would you like to enter? Enter &
