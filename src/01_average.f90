@@ -27,11 +27,11 @@ write(*,*) ! newline character
 
 total = 0.d0
 
-DO i = 1, num_entries
+do i = 1, num_entries
     write(*,' (A, I0, A)', advance='no') 'input number ', i, ': '
     read(*,*) temp
     total = total + temp
-END DO
+end do
 
 average = total / dble(num_entries)
 
