@@ -1,6 +1,14 @@
 # Prerequisites
 *.d
 
+# build directory
+build/
+
+# ignore all files starting with numbers
+[0-9]*
+# but not those ending with .f90
+![0-9]*.f90
+
 # Compiled Object files
 *.slo
 *.lo
