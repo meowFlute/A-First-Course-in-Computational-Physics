@@ -1,0 +1,41 @@
+**************************************************************************
+
+
+        A FIRST COURSE IN COMPUTATIONAL PHYSICS was written 
+        using Microsoft FORTRAN Version 5.00.  Version 5.10 
+        is also available.  We have found inconsistencies 
+        between these versions which make it necessary for us 
+        to include separate FCCP libraries for each version. 
+        As a result, the installation procedure 
+
+                            IS NOT 
+
+        exactly as described in Appendix A of the text.  
+        However, the USE of the libraries is unaffected by 
+        this complication.
+
+
+
+(You can determine which FORTRAN compiler is installed on your 
+computer by entering the command FL, with no file name given.  
+A copyright notice, containing the Version number, will be 
+displayed on your screen.)
+
+
+If you are using Version 5.00 of the FORTRAN compiler, you 
+should now change to the 5_00 directory: 
+
+         cd 5_00 [enter]
+
+
+If you are using Version 5.10 of the FORTRAN compiler, you 
+should now change to the 5_10 directory:
+
+         cd 5_10 [enter]
+
+
+After changing to the appropriate directory, read the 
+README.DOC file located there.
+
+**************************************************************************
+
