@@ -1,0 +1,3 @@
+[submodule "fplot"]
+	path = fplot
+	url = https://github.com/jchristopherson/fplot.git
