@@ -9,7 +9,7 @@ This book is all about Fortran, so I imagine that is mostly what this repo will 
 ## Plotting submodule
 A lot has changed in the field of scientific plotting since this book was published in the early 90s.
 
-The book has details about a labor-intensive, low-levl method of plotting that utilized functions available in the Microsoft FORTRAN Version 5.0 Compiler,
+The book has details about a labor-intensive, low-level method of plotting that utilized functions available in the Microsoft FORTRAN Version 5.0 Compiler,
 which was released in 1989 and added support for OS/2 1.1 and the 386 processor. [Here is a review of the compiler in a the May 15, 1989 InfoWorld.](https://books.google.com/books?id=UDoEAAAAMBAJ&pg=PA711&dq=microsoft+fortran&hl=en&sa=X&ved=0ahUKEwjV8aXe_pHNAhVBSiYKHUArAbQQ6AEIRzAH#v=onepage&q&f=false)
  [Here is where you can download the compiler](https://winworldpc.com/product/microsoft-fortran/5x) 
 
