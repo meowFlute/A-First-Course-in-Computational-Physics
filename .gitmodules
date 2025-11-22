@@ -1,3 +1,18 @@
 [submodule "fplot"]
 	path = vendor/fplot
 	url = https://github.com/jchristopherson/fplot.git
+[submodule "vendor/ferror"]
+	path = vendor/ferror
+	url = https://github.com/jchristopherson/ferror.git
+[submodule "vendor/collections"]
+	path = vendor/collections
+	url = https://github.com/jchristopherson/collections.git
+[submodule "vendor/fstring"]
+	path = vendor/fstring
+	url = https://github.com/jchristopherson/fstring.git
+[submodule "vendor/geompack"]
+	path = vendor/geompack
+	url = https://github.com/jchristopherson/geompack.git
+[submodule "vendor/forcolormap"]
+	path = vendor/forcolormap
+	url = https://github.com/vmagnin/forcolormap.git
