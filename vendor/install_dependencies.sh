@@ -27,7 +27,7 @@ apply_patches() {
     
     # Fix geompack - add install target
     if [ -f "geompack/CMakeLists.txt" ]; then
-        echo "Patching geompack/CMakeLists.txt..."
+        echo "Patching geompack..."
         
         # Create the config template file
         mkdir -p geompack/cmake
@@ -39,14 +39,32 @@ include("${CMAKE_CURRENT_LIST_DIR}/geompackTargets.cmake")
 check_required_components(geompack)
 EOF
         
-        # Add installation code after add_fortran_library call
-        # Find the line number where add_fortran_library ends
-        local insert_line=$(grep -n "add_fortran_library" geompack/CMakeLists.txt | tail -1 | cut -d: -f1)
-        # Add 3 to skip past the closing parenthesis
-        insert_line=$((insert_line + 3))
-        
-        # Create the installation block
-        local install_block='
+        # Replace the entire CMakeLists.txt with the patched version
+        cat > geompack/CMakeLists.txt << 'EOF'
+cmake_minimum_required(VERSION 3.24)
+project(
+    geompack
+    LANGUAGES Fortran
+    VERSION 1.0.2
+)
+
+# Get helper macros and functions
+include("${PROJECT_SOURCE_DIR}/cmake/helper.cmake")
+
+# Configure everything
+add_subdirectory(configure)
+
+# Source
+add_subdirectory(src)
+add_fortran_library(
+    ${PROJECT_NAME}
+    ${PROJECT_INCLUDE_DIR}
+    ${CMAKE_INSTALL_INCLUDEDIR}
+    ${PROJECT_VERSION}
+    ${PROJECT_VERSION_MAJOR}
+    ${GEOMPACK_SOURCES}
+)
+
 # Installation
 include(GNUInstallDirs)
 install_library(
@@ -89,13 +107,16 @@ install(
     NAMESPACE ${PROJECT_NAME}::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
-'
-        
-        # Insert the block into CMakeLists.txt
-        head -n $insert_line geompack/CMakeLists.txt > geompack/CMakeLists.txt.tmp
-        echo "$install_block" >> geompack/CMakeLists.txt.tmp
-        tail -n +$((insert_line + 1)) geompack/CMakeLists.txt >> geompack/CMakeLists.txt.tmp
-        mv geompack/CMakeLists.txt.tmp geompack/CMakeLists.txt
+
+# Testing
+option(BUILD_TESTING "Build tests")
+include(CTest)
+message(STATUS "Build tests: ${BUILD_TESTING}")
+if (BUILD_TESTING)
+    enable_testing()
+    add_subdirectory(test)
+endif()
+EOF
     fi
     
     echo "Patches applied successfully!"
